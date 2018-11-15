@@ -22,7 +22,9 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 		m_bRunning = true;
 
-		SDL_Surface* pTempSurface = SDL_LoadBMP("assets/animate.bmp");
+		// SDL_Surface* pTempSurface = IMG_Load("assets/animate.png");		// alpha °ª x
+		SDL_Surface* pTempSurface = IMG_Load("assets/animate-alpha.png");	// alpha °ª o
+		SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
 		m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
 		SDL_FreeSurface(pTempSurface);
 

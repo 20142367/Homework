@@ -18,6 +18,10 @@ private:
 	SDL_Window * m_pWindow;
 	SDL_Renderer* m_pRenderer;
 
+	SDL_Texture* m_pTexture;			// the new SDL_Texture variable
+	SDL_Rect m_sourceRectangle;			// 원본 Rectangle
+	SDL_Rect m_destinationRectangle;	// 대상 Rectangle
+
 	bool m_bRunning;
 };
 

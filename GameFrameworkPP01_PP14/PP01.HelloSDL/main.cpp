@@ -6,7 +6,7 @@ int main(int argc, char* args[])
 {
 	g_game = new Game();
 	
-	g_game->init("PP07.TextureManager", 100, 100, 640, 480, false);
+	g_game->init("PP08.SingletonTM", 100, 100, 640, 480, false);
 
 	while (g_game->running())
 	{

@@ -1,14 +1,6 @@
 #include "Game.h"
 #include <iostream>
 
-Game::Game()
-{
-}
-
-Game::~Game()
-{
-}
-
 bool Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) >= 0)
@@ -22,7 +14,11 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 		m_bRunning = true;
 
-		m_textureManager.load("assets/animate-alpha.png", "animate", m_pRenderer);
+		if (!TheTextureManager::Instance()->load("assets/animate-alpha.png", "animate", m_pRenderer)) 
+		{
+			return false;
+		}
+
 		SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
 	}
 
@@ -39,8 +35,8 @@ void Game::render()
 	// clear the renderer to the draw color
 	SDL_RenderClear(m_pRenderer);	// draw color로 render 지우기
 
-	m_textureManager.draw("animate", 0, 0, 128, 82, m_pRenderer);
-	m_textureManager.drawFrame("animate", 100, 100, 128, 82, 1, m_currentFrame, m_pRenderer);
+	TheTextureManager::Instance()->draw("animate", 0, 0, 128, 82, m_pRenderer);
+	TheTextureManager::Instance()->drawFrame("animate", 100, 100, 128, 82, 1, m_currentFrame, m_pRenderer);
 
 	SDL_RenderPresent(m_pRenderer);	// 화면 제시
 }

@@ -1,6 +1,4 @@
 #pragma once
-#include <SDL.h>
-#include <string>
 #include "LoaderParams.h"
 
 class GameObject
@@ -14,4 +12,3 @@ protected:
 	GameObject(const LoaderParams* pParams) {}
 	virtual ~GameObject() {}
 };
-

@@ -1,6 +1,5 @@
 #pragma once
 #include "GameObject.h"
-#include "LoaderParams.h"
 #include "Vector2D.h"
 
 class SDLGameObject : public GameObject
@@ -10,7 +9,7 @@ public:
 
 	virtual void draw();
 	virtual void update();
-	virtual void clean() {}
+	virtual void clean();
 
 protected:
 	int m_width;
@@ -22,5 +21,4 @@ protected:
 	Vector2D m_position;
 	Vector2D m_velocity;
 	Vector2D m_acceleration;
-
 };

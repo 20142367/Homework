@@ -1,7 +1,6 @@
 #pragma once
 #include <SDL.h>
-#include "TextureManager.h"
-#include "GameObject.h"
+#include <SDL_image.h>
 #include "Player.h"
 #include "Enemy.h"
 #include <vector>
@@ -27,8 +26,10 @@ private:
 
 	SDL_Window * m_pWindow;
 	SDL_Renderer* m_pRenderer;
+	SDL_RendererFlip* m_pRendererFlip;
 
 	int m_currentFrame;
+	TextureManager* m_textureManager;
 
 	bool m_bRunning;
 

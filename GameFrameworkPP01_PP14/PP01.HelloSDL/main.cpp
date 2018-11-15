@@ -1,22 +1,32 @@
 #include "Game.h"
-
-Game* g_game = 0;
+#include <iostream>
 
 int main(int argc, char* args[])
 {
-	g_game = new Game();
-	
-	g_game->init("PP10.Polymorphism", 100, 100, 640, 480, false);
+	std::cout << "game init attempt...\n";
 
-	while (g_game->running())
+	if (TheGame::Instance()->init("PP11.AbstractClass", 100, 100, 640, 480, false))
 	{
-		g_game->handleEvents();
-		g_game->update();
-		g_game->render();
-		SDL_Delay(10);		// add the delay
+		std::cout << "game init success!\n";
+
+		while (TheGame::Instance()->running())
+		{
+			TheGame::Instance()->handleEvents();
+			TheGame::Instance()->update();
+			TheGame::Instance()->render();
+			SDL_Delay(10);
+		}
+	}
+	
+	else
+	{
+		std::cout << "game init failure - " << SDL_GetError() << "\n";
+		return -1;
 	}
 
-	g_game->clean();
+	std::cout << "game closing...\n";
+
+	TheGame::Instance()->clean();
 
 	return 0;
 }

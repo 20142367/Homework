@@ -13,6 +13,7 @@ public:
 	void update();
 	void handleEvents();
 	void clean();
+	void quit();
 	bool running() { return m_bRunning; }
 
 	std::vector<GameObject*> m_gameObjects;
